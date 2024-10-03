@@ -11,10 +11,20 @@ pokemonRouter.get("/", async (req, res) => {
 
   try {
     const results = await pool.query(
-      `SELECT name, image_url, primary_type, secondary_type FROM pokemon ORDER BY id ASC LIMIT ${limit} OFFSET ${pSize}`
+      `SELECT id, name, image_url, primary_type, secondary_type FROM pokemon ORDER BY id ASC LIMIT ${limit} OFFSET ${pSize}`
     );
 
     res.status(200).json(results.rows);
+  } catch (error) {
+    res.status(409).json({ error: error.message });
+  }
+});
+
+pokemonRouter.get("/count", async (req, res) => {
+  try {
+    const results = await pool.query(`SELECT COUNT(id) FROM pokemon`);
+
+    res.status(200).json(results.rows[0]);
   } catch (error) {
     res.status(409).json({ error: error.message });
   }
@@ -27,8 +37,12 @@ pokemonRouter.get("/:id", async (req, res) => {
       `SELECT name, image_url, primary_type, secondary_type, hp, attack, defense, sp_atk, sp_def, speed, legendary FROM pokemon WHERE id=${id} LIMIT 1`
     );
     console.log(results.rows[0]);
-    
-    res.status(200).json(results.rows[0]||{"message": `No Pokemon with id ${id} got found`});
+
+    res
+      .status(200)
+      .json(
+        results.rows[0] || { message: `No Pokemon with id ${id} got found` }
+      );
   } catch (error) {
     res.status(409).json({ error: error.message });
   }

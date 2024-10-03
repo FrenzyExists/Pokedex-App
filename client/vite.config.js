@@ -5,12 +5,17 @@ export default defineConfig({
     outDir: '../server/public',
     emptyOutDir: true
   },
-  // server: {
-  //   proxy: {
-  //     '/weapon': {
-  //       target: 'http://localhost:3001'
-  //     }
-  //   }
-  // }
+  server: {
+    proxy: {
+      '/pokemons': {
+        target: 'http://localhost:3001'
+      },
+      '/pokemons/:id': {
+        target: 'http://localhost:3001'
+
+      }
+      
+    }
+  }
 
 })
