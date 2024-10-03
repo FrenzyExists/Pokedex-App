@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.img-pixelated {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+:root {
+  --pokedex-green-light-2: #7cdaa6;
+  --pokedex-green-light: #6bbc8f;
+  --pokedex-green-dark: #22543d;
+  --pokedex-red: #c24130;
+  --pokedex-red-dark: #8b2021;
+  --pokedex-yellow: #e1c154;
+  --pokedex-yellow-dark: #a8893a;
+  --pokedex-grey-light: #efefef;
+  --pokedex-grey-dark: #d1d0d0;
+  --pokedex-black: #3d3d3d;
+  --pokedex-white: #ffffff;
+  --pokedex-blue-light: #9c79c9;
+  --pokedex-blue-dark: #563d79;
+  --pokedex-orange: #e6924a;
+  --pokedex-orange-dark: #b36129;
+  --pokedex-border: #2b2b2b;
+  --pokedex-shadow: #1a1a1a;
+}
+
+body {
+  background-color: var(--pokedex-green-dark);
+}
+
+.text-pop-stroke {
+  text-shadow: 2px 2px 0 #111827, -1px -1px 0 #111827, 1px -1px 0 #111827,
+    -1px 1px 0 #111827, 1px 1px 0 #111827;
+  /* -webkit-text-stroke: 1px white; */
+  -webkit-text-fill-color: white;
+}
+
+.pixelBorder {
+  transform: translateZ(0);
+}
+
+.pixelBorder--22 {
+  box-shadow: 0 -12px 0 -4px var(--pokedex-grey-light),
+    0 12px 0 -4px var(--pokedex-grey-light),
+    0 -24px 0 -8px var(--pokedex-grey-dark),
+    0 24px 0 -8px var(--pokedex-grey-dark),
+    0 -36px 0 -16px var(--pokedex-grey-light),
+    0 36px 0 -16px var(--pokedex-grey-light),
+    0 -48px 0 -24px var(--pokedex-grey-dark),
+    0 48px 0 -24px var(--pokedex-grey-dark),
+    -4px 0 0 0 var(--pokedex-green-light), 4px 0 0 0 var(--pokedex-green-light),
+    0 -8px 0 0 var(--pokedex-green-light), 0 8px 0 0 var(--pokedex-green-light),
+    0 -20px 0 -4px var(--pokedex-green-light),
+    0 20px 0 -4px var(--pokedex-green-light),
+    0 -28px 0 -8px var(--pokedex-green-light),
+    0 28px 0 -8px var(--pokedex-green-light),
+    0 -40px 0 -16px var(--pokedex-green-light),
+    0 40px 0 -16px var(--pokedex-green-light),
+    0 -52px 0 -24px var(--pokedex-green-light),
+    0 52px 0 -24px var(--pokedex-green-light);
+}
+
+.pixelBorder--2 {
+  box-shadow: 0 -12px 0 -4px var(--pokedex-green-light-2),
+    0 12px 0 -4px var(--pokedex-green-light-2),
+    0 -24px 0 -8px var(--pokedex-green-light-2),
+    0 24px 0 -8px var(--pokedex-green-light-2),
+    0 -36px 0 -16px var(--pokedex-green-light-2),
+    0 36px 0 -16px var(--pokedex-green-light-2),
+    0 -48px 0 -24px var(--pokedex-green-light-2),
+    0 48px 0 -24px var(--pokedex-green-light-2),
+    -4px 0 0 0 var(--pokedex-green-light), 4px 0 0 0 var(--pokedex-green-light),
+    0 -8px 0 0 var(--pokedex-green-light), 0 8px 0 0 var(--pokedex-green-light),
+    0 -20px 0 -4px var(--pokedex-green-light),
+    0 20px 0 -4px var(--pokedex-green-light),
+    0 -28px 0 -8px var(--pokedex-green-light),
+    0 28px 0 -8px var(--pokedex-green-light),
+    0 -40px 0 -16px var(--pokedex-green-light),
+    0 40px 0 -16px var(--pokedex-green-light),
+    0 -52px 0 -24px var(--pokedex-green-light),
+    0 52px 0 -24px var(--pokedex-green-light);
+}
+
+.press-start-2p-regular {
+  font-family: "Press Start 2P", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.wrapper {
+  background-color: var(--pokedex-green-light-2);
+  color: var(--pokedex-grey-light);
+}
+
+.pixelated-bg {
+  background: linear-gradient(
+    to bottom,
+    var(--pokedex-grey-light) 50%,
+    var(--pokedex-grey-dark) 50%
+  );
+  background-size: 100% 5px; /* Adjust the thickness of the lines */
+}
+
+.card-container {
+  max-width: 1270px;
+  margin: 0 auto;
+}
+
+.header {
+    background-color: var(--pokedex-blue-light);
+    border-color: var(--pokedex-blue-dark);
+}

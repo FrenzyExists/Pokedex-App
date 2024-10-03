@@ -1,3 +1,5 @@
+
+
 const renderPokemon = async (id) => {
   const mainContent = document.getElementById("main-content");
 

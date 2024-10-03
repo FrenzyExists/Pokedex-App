@@ -1,8 +1,18 @@
 const header = document.querySelector('header');
 
 const headerContainer = document.createElement('div');
-headerContainer.className = 'header-container';
-
+headerContainer.classList.add(
+    "max-h-[10vh]",   // max-height: 10vh;
+    "h-[10vh]",       // height: 10vh;
+    "flex",           // display: flex;
+    "justify-between",// justify-content: space-between;
+    "pl-4",           // padding-left: 1rem;
+    "pr-4",           // padding-right: 1rem;
+    "pt-2",           // padding-top: 0.5rem;
+    "pb-2",            // padding-bottom: 0.5rem;
+    "header",
+    "border-b-4"
+  );
 const headerLeft = document.createElement('div');
 headerLeft.className = 'header-left';
 
@@ -35,6 +45,7 @@ headerButton2.addEventListener('click', function handleClick(event) {
 
 
 headerLeft.appendChild(headerTitle);
+
 
 headerRight.appendChild(headerButton1);
 headerRight.appendChild(headerButton2);

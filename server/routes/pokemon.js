@@ -11,7 +11,7 @@ pokemonRouter.get("/", async (req, res) => {
 
   try {
     const results = await pool.query(
-      `SELECT id, name, image_url, primary_type, secondary_type FROM pokemon ORDER BY id ASC LIMIT ${limit} OFFSET ${pSize}`
+      `SELECT id, name, image_url, primary_type, secondary_type FROM pokemon WHERE name NOT LIKE '%Mega %' ORDER BY id ASC LIMIT ${limit} OFFSET ${pSize}`
     );
 
     res.status(200).json(results.rows);

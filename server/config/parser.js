@@ -10,7 +10,11 @@ const parser = async (csvfile) => {
             fs.createReadStream(csvfile)
             .pipe(csv())
             .on('data', (data) => {
-                data.ImgUrl = `${imageURL}/${data.Name.toString().toLowerCase()}.png`
+                const img = `${imageURL}/${data.Name.toString().toLowerCase()}.png`
+                .replace("♀", "-f")
+                .replace("♂", "-m");
+
+                data.ImgUrl = img
                 results.push(data)
             
             })

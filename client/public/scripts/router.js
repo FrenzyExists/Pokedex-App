@@ -1,3 +1,4 @@
+import '../../src/style.css'; // Path relative to the location of pokemon.js
 import renderPokemons from "./pokemons.js";
 import renderPokemon from "./pokemon.js";
 import renderNotFound from "./404.js";
