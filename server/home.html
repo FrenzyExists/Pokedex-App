@@ -1,10 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>API Documentation</title>
-</head>
-<body>
-    Welcome to the most basic pokedex API in existance
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        color: #333;
+        margin: 0;
+        padding: 20px;
+        height: 100%;
+        overflow-y: auto; /* Enable scrolling */
+      }
+      h1,
+      h2 {
+        color: #3498db;
+        margin-bottom: 20px;
+      }
+      p {
+        font-size: 18px;
+        margin-bottom: 20px;
+        color: #555;
+      }
+      .api-info {
+        text-align: left;
+        margin-top: 40px;
+        color: #777;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Welcome to the most basic pokedex API in existence</h1>
+      <h3>Made with express - Part of a Codepath course</h3>
+
+      <div class="api-info">
+        <h2>API Endpoints</h2>
+
+        <h3>GET All Pokemons</h3>
+        <p><strong>GET</strong> <code>/pokemons</code></p>
+        <p>Retrieve a list of all pokemons in the system.</p>
+        <h4>Optional Parameters</h4>
+        <p>
+          <strong>page</strong> Page list of pokemons relative to the number of
+          pokemons retrieved
+        </p>
+        <p>
+          <strong>limit</strong> Size of the list of pokemons to be retrieved.
+          Default is 10
+        </p>
+
+        <h3>GET Pokemon By ID</h3>
+        <p><strong>GET</strong> <code>/pokemons/:id</code></p>
+        <p>Retrieve all information of a pokemon by its id</p>
+      </div>
+    </div>
+  </body>
 </html>
