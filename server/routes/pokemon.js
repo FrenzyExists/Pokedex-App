@@ -34,7 +34,7 @@ pokemonRouter.get("/:id", async (req, res) => {
   const id = req.params.id;
   try {
     const results = await pool.query(
-      `SELECT name, image_url, primary_type, secondary_type, hp, attack, defense, sp_atk, sp_def, speed, legendary FROM pokemon WHERE id=${id} LIMIT 1`
+      `SELECT name, image_url, primary_type, secondary_type, hp, attack, defense, sp_atk, sp_def, speed, legendary, generation FROM pokemon WHERE id=${id} LIMIT 1`
     );
     console.log(results.rows[0]);
 

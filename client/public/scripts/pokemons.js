@@ -1,22 +1,54 @@
-const renderPokemons = async () => {
-  const mainContent = document.getElementById("main-content");
 
-  const response = await fetch("/pokemons");
+let pageSize = 10;
+let totalPages = 1;
+let currentPage = 1;
+
+const renderPokemons = async (page = 1, limit = 10) => {
+  const mainContent = document.getElementById("main-content");
+  mainContent.innerHTML = "";
+
+
+  const offset = (page - 1) * pageSize;
+
+  const response = await fetch(`/pokemons?limit=${limit}&page=${page}`);
   const data = await response.json();
 
+  const countResponse = await fetch("/pokemons/count");
+  const count = await countResponse.json();
+
   if (data && !data.error) {
+    totalPages = Math.ceil(parseInt(count.count) / limit); // Calculate total pages
+
+
     const cardContainer = document.createElement("section");
 
     const selectorContainer = document.createElement("div");
     const label = document.createElement("label");
     label.textContent = "Pokémon per page: ";
+
     const selector = document.createElement("select");
     const options = [10, 50, 100];
+
+    options.map((size) => {
+      const option = document.createElement("option");
+      option.value = size;
+      option.textContent = size;
+      if (size == pageSize) {
+        option.selected = true;
+      }
+      selector.appendChild(option);
+    });
+
+    selector.addEventListener("change", e => {
+        pageSize = parseInt(e.target.value);
+        renderPokemons(1, pageSize)
+    })
+
     selectorContainer.appendChild(label);
     selectorContainer.appendChild(selector);
-    mainContent.prepend(selectorContainer);  // Add selector at the top
-    data.forEach((pkm) => {
+    mainContent.appendChild(selectorContainer);
 
+    data.forEach((pkm) => {
       const card = document.createElement("article");
       card.classList.add("card");
       const wrapper = document.createElement("a");
@@ -48,8 +80,30 @@ const renderPokemons = async () => {
 
     const prevButton = document.createElement("button");
     prevButton.textContent = "Previous";
+    
     const nextButton = document.createElement("button");
     nextButton.textContent = "Next";
+
+    console.log("page", currentPage);
+    console.log("pag e", totalPages);
+    console.log("FEFW", count);
+    
+
+    
+    nextButton.addEventListener("click", ()=> {
+        if(currentPage < totalPages) {
+            currentPage++;
+        }
+        renderPokemons(currentPage, pageSize)
+    })
+
+    prevButton.addEventListener("click", ()=> {
+        if(currentPage > 1) {
+            currentPage--;
+        }
+        renderPokemons(currentPage, pageSize)
+    })
+
 
     paginationContainer.appendChild(prevButton);
     paginationContainer.appendChild(nextButton);
