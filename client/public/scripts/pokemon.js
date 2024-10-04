@@ -1,5 +1,3 @@
-
-
 const renderPokemon = async (id) => {
   const mainContent = document.getElementById("main-content");
 
@@ -11,38 +9,37 @@ const renderPokemon = async (id) => {
   if (data && !data.error) {
     // Create a wrapper for fatebound info
     const wrapper = document.createElement("div");
-    wrapper.classList.add("wrapper");
+    wrapper.classList.add(
+      "wrapper",
+      "w-[1270px]",
+      "m-auto",
+      "press-start-2p-regular",
+       "text-pop-stroke",
+       "h-full",
+       "my-10"
+    );
 
     // Title
     const title = document.createElement("h1");
     title.textContent = data.name;
-    title.classList.add("title");
+    title.classList.add("text-6xl", "p-8");
 
     // Image
     const img = document.createElement("img");
     img.src = data.image_url;
     img.alt = `${data.name} image`;
+    img.classList.add(
+      "img-pixelated",
+      "h-auto",
+      "w-full",
+      "mb-4",
+      "scale-110",
+      "-mt-30"
+    );
 
     const statsTable = document.createElement("table");
+    const headers = ["HP", "Attack", "Defense", "Sp. Atk", "Sp. Def", "Speed"];
 
-    const headerRow = document.createElement("tr");
-    const headers = [
-      "HP",
-      "Attack",
-      "Defense",
-      "Sp. Atk",
-      "Sp. Def",
-      "Speed",
-    ];
-    headers.forEach((header) => {
-      const th = document.createElement("th");
-      th.textContent = header;
-      headerRow.appendChild(th);
-    });
-    statsTable.appendChild(headerRow);
-
-    // Table Data Row
-    const dataRow = document.createElement("tr");
     const stats = [
       data.hp,
       data.attack,
@@ -51,20 +48,50 @@ const renderPokemon = async (id) => {
       data.sp_def,
       data.speed,
     ];
-    stats.forEach((stat) => {
-      const td = document.createElement("td");
-      td.textContent = stat;
-      dataRow.appendChild(td);
+    stats.map((stat, index) => {
+      const dataRow = document.createElement("tr");
+      const tdH = document.createElement("td");
+      const tdS = document.createElement("td");
+      tdH.textContent = headers[index];
+      tdS.textContent = stat;
+      dataRow.appendChild(tdH);
+      dataRow.appendChild(tdS);
+      statsTable.appendChild(dataRow);
     });
-    statsTable.appendChild(dataRow);
+
+    statsTable.classList.add(
+        "stat",
+       "text-2xl"
+    )
+
+    
+    const imgPEContainerMain = document.createElement("div");
+    imgPEContainerMain.classList.add(
+        "flex",
+        "my-8",
+        "align-center"
+    )
 
     const imgPEContainer = document.createElement("div");
+    imgPEContainer.classList.add(
+        "overflow-hidden",
+        "pixelated-bg",
+        "mx-4",
+        "pixelBorder",
+        "pixelBorder--22",
+        "mt-4",
+        "mb-8",
+        "w-[32rem]",
+        "h-[28rem]"
+      );
     imgPEContainer.appendChild(img);
-      imgPEContainer.appendChild(statsTable); 
+
+    imgPEContainerMain.appendChild(imgPEContainer);
+    imgPEContainerMain.appendChild(statsTable);
 
     // Append all elements to the wrapper
     wrapper.appendChild(title);
-    wrapper.appendChild(imgPEContainer);
+    wrapper.appendChild(imgPEContainerMain);
 
     // Append the wrapper to mainContent
     mainContent.appendChild(wrapper);

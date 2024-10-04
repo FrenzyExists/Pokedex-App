@@ -90,6 +90,20 @@ body {
   font-style: normal;
 }
 
+.btnMv {
+  background-color: var(--pokedex-blue-light);
+}
+.Mv {
+  box-shadow: 4px 4px 0px 1px var(--pokedex-grey-light);
+}
+.Mv:hover {
+  box-shadow: 4px 4px 0px 1px var(--pokedex-grey-dark);
+}
+
+.btnMv:hover {
+  background-color: var(--pokedex-blue-dark);
+}
+
 .wrapper {
   background-color: var(--pokedex-green-light-2);
   color: var(--pokedex-grey-light);
@@ -110,6 +124,24 @@ body {
 }
 
 .header {
-    background-color: var(--pokedex-blue-light);
-    border-color: var(--pokedex-blue-dark);
+  background-color: var(--pokedex-blue-light);
+  border-color: var(--pokedex-blue-dark);
+}
+
+.custom-select {
+  appearance: none; /* Hide the default arrow */
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%23000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 15l-6-6h12z"/></svg>'); /* Custom chevron arrow */
+  background-repeat: no-repeat;
+  background-position: right 0.25rem top 0.2rem;
+  background-size: 2rem;
+}
+
+
+.stat {
+    background-color: var(--pokedex-grey-light);
+}
+
+.stat tr td {
+    border: 7px solid var(--pokedex-grey-dark);
+    padding: 1rem;
 }
