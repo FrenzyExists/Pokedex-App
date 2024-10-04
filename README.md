@@ -20,13 +20,19 @@ The following **stretch** features are implemented:
 - [x] The user can search for items with a specific attribute
 - [x] The user can use the searchbar to filter results 
 
+Optional things i could do later:
+- [ ] Expand the pokedex. Include:
+  - [ ]  Pokemon descriptions
+  - [ ]  dex number by region or national
+  - [ ]  available moveset of each pokemon
+  - [ ]  available abilities of each pokemon
+  - [ ]  mega evolutions
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented required features:
 
 <img src='./gif3.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
-
 
 GIF created with [Kap](https://getkap.co/) for macOS
 
