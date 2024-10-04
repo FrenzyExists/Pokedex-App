@@ -15,9 +15,10 @@ The following **required** functionality is completed:
 - [x] **The web app is connected to a PostgreSQL database, with an appropriately structured database table for the list items**
 - [x] **The PostgreSQL database includes a table that matches the data displayed in the web app**
 
-The following **optional** features are implemented:
+The following **stretch** features are implemented:
 - [x] Backend supports paging
 - [x] The user can search for items with a specific attribute
+- [x] The user can use the searchbar to filter results 
 
 
 ## Video Walkthrough
@@ -31,7 +32,7 @@ GIF created with [Kap](https://getkap.co/) for macOS
 
 ## Notes
 
-This time I turned in on time. Fuck you if you think I gonna give up.
+I won't give up
 
 Copyright 2024 Pikachu
 
